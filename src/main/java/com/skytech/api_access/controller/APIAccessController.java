@@ -6,6 +6,7 @@ import com.skytech.api_access.service.APIAccessService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Mono;
 
 import java.util.Map;
 
@@ -35,6 +36,12 @@ public class APIAccessController {
     @PatchMapping("/update/{id}")
     public String updateStudentEmailId(@PathVariable Long id , @RequestParam String emailId){
         return apiAccessService.updateStudentEmailId(id, emailId);
+    }
+
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteStudentById(@PathVariable(name = "id") Long studentId){
+        return apiAccessService.deleteStudentById(studentId);
     }
 
 
